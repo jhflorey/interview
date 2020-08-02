@@ -1,4 +1,4 @@
-package com.hps.luhn;
+package src.test.java.com.hps.luhn;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import src.main.java.com.hps.luhn.Luhn;
 
 public class LuhnUnitTest {
 

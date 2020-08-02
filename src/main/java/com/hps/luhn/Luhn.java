@@ -1,4 +1,4 @@
-package com.hps.luhn;
+package src.main.java.com.hps.luhn;
 
 /**
  * @see https://en.wikipedia.org/wiki/Luhn_algorithm#Description
