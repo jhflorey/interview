@@ -1,4 +1,4 @@
-package src.main.java.com.hps.luhn;
+package com.hps.luhn;
 
 import java.math.BigInteger;
 

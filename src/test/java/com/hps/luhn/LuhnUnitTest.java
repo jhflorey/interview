@@ -1,15 +1,11 @@
-package src.test.java.com.hps.luhn;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+package com.hps.luhn;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import src.main.java.com.hps.luhn.Luhn;
 
 import java.math.BigInteger;
+
+import static org.junit.Assert.*;
 
 public class LuhnUnitTest {
 
