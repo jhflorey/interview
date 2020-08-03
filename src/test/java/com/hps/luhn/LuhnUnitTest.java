@@ -24,7 +24,6 @@ public class LuhnUnitTest {
 		assertEquals(0, luhn.generateCheckDigit(92739875));
 	}
 
-	@Ignore // Ignore feature which is not implemented completely
 	@Test
 	public void isValidLuhn() {
 		assertFalse(luhn.isValidLuhn(927398710));
@@ -37,6 +36,7 @@ public class LuhnUnitTest {
 		assertFalse(luhn.isValidLuhn(927398717));
 		assertFalse(luhn.isValidLuhn(927398718));
 		assertTrue(luhn.isValidLuhn(927398719));
+		assertTrue(luhn.isValidLuhn(927398750));
 	}
 
 	@Ignore // Ignore feature which is not implemented completely

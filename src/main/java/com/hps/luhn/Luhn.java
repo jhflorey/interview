@@ -18,7 +18,7 @@ public class Luhn {
 	 *         false if not
 	 */
 	public boolean isValidLuhn(int cardNumber) {
-		return false;
+		return cardNumber % 10 == generateCheckDigit(cardNumber / 10);
 	}
 
 	/**
