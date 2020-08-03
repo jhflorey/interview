@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import src.main.java.com.hps.luhn.Luhn;
 
@@ -20,8 +21,10 @@ public class LuhnUnitTest {
 	@Test
 	public void generateCheckDigit() {
 		assertEquals(9, luhn.generateCheckDigit(92739871));
+		assertEquals(0, luhn.generateCheckDigit(92739875));
 	}
 
+	@Ignore // Ignore feature which is not implemented completely
 	@Test
 	public void isValidLuhn() {
 		assertFalse(luhn.isValidLuhn(927398710));
@@ -36,6 +39,7 @@ public class LuhnUnitTest {
 		assertTrue(luhn.isValidLuhn(927398719));
 	}
 
+	@Ignore // Ignore feature which is not implemented completely
 	@Test
 	public void countRange() {
 		assertEquals(1, 927398710, 927398720);
