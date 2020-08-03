@@ -71,6 +71,16 @@ public class Luhn {
 	 * @return the number of valid Luhn card numbers in the range, inclusive
 	 */
 	public int countRange(int startRange, int endRange) {
-		return 1;
+		int runner = startRange;
+		int validLuhn = 0;
+
+		while (runner <= endRange) {
+			if (isValidLuhn(runner))
+				validLuhn += 1;
+
+			runner += 1;
+		}
+
+		return validLuhn;
 	}
 }

@@ -39,10 +39,10 @@ public class LuhnUnitTest {
 		assertTrue(luhn.isValidLuhn(927398750));
 	}
 
-	@Ignore // Ignore feature which is not implemented completely
 	@Test
 	public void countRange() {
-		assertEquals(1, 927398710, 927398720);
+		assertEquals(1, luhn.countRange(927398710, 927398720));
+		assertEquals(2, luhn.countRange(927398710, 927398730));
 	}
 
 }
