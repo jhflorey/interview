@@ -1,5 +1,7 @@
 package src.main.java.com.hps.luhn;
 
+import java.math.BigInteger;
+
 /**
  * @see https://en.wikipedia.org/wiki/Luhn_algorithm#Description
  */
@@ -17,8 +19,8 @@ public class Luhn {
 	 * @return true if the card number is valid according to the Luhn algorithm,
 	 *         false if not
 	 */
-	public boolean isValidLuhn(int cardNumber) {
-		return cardNumber % 10 == generateCheckDigit(cardNumber / 10);
+	public boolean isValidLuhn(BigInteger cardNumber) {
+		return cardNumber.mod(BigInteger.TEN).intValue() == generateCheckDigit(cardNumber.divide(BigInteger.TEN));
 	}
 
 	/**
@@ -30,12 +32,12 @@ public class Luhn {
 	 * 
 	 * @return the check digit
 	 */
-	public int generateCheckDigit(int cardNumber) {
+	public int generateCheckDigit(BigInteger cardNumber) {
 		boolean doubleDigit = true;
 		int sum = 0;
-		while (cardNumber > 0) {
+		while (cardNumber.compareTo(BigInteger.ZERO) > 0) {
 			// starting from the right (rightmost is the unknown check digit)
-			long digit = cardNumber % 10; 
+			long digit = cardNumber.mod(BigInteger.TEN).longValue();
 
 			if (doubleDigit) { // double the value of every second digit
 				digit *= 2;
@@ -50,7 +52,7 @@ public class Luhn {
 
 			sum += digit;
 
-			cardNumber /= 10; // remaining digits to the left
+			cardNumber = cardNumber.divide(BigInteger.TEN); // remaining digits to the left
 		}
 
 		return sum * 9 % 10;
@@ -70,15 +72,15 @@ public class Luhn {
 	 * 
 	 * @return the number of valid Luhn card numbers in the range, inclusive
 	 */
-	public int countRange(int startRange, int endRange) {
-		int runner = startRange;
+	public int countRange(BigInteger startRange, BigInteger endRange) {
+		BigInteger runner = startRange;
 		int validLuhn = 0;
 
-		while (runner <= endRange) {
+		while (runner.compareTo(endRange) <= 0) {
 			if (isValidLuhn(runner))
 				validLuhn += 1;
 
-			runner += 1;
+			runner = runner.add(BigInteger.ONE);
 		}
 
 		return validLuhn;
